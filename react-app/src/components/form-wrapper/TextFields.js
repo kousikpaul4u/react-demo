@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function TextField(props) {
 
-    const [value, setValue] = useState('');
-
     function handleOnChange(e) {
-        setValue(e.target.value);
+        props.onChange(e.target.value);
     }
-
     return (
-        <input
-            id={props.id}
-            type={props.type}
-            onChange={(e) => handleOnChange(e)}
-            value={value}
-            className="input-field"
-            placeholder={props.placeholder}
-        />
+        <div>
+            <input
+                id={props.id}
+                type={props.type}
+                onChange={(e) => handleOnChange(e)}
+                value={props.value}
+                className="input-field"
+                placeholder={props.placeholder}
+            />
+        </div>
+
     )
 }
 
